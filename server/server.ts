@@ -6,7 +6,7 @@ const loginRoute=require('./controllers/loginRoute');
 const getfilesRoute=require('./controllers/getfilesRoute');
 const filedownloadRoute=require('./controllers/filedownloadRoute');
 const passwordResetRoute=require('./controllers/passwordResetRoute');
-// const passwordRRoute=require('./controllers/passwordRRoute');
+const passwordRRoute=require('./controllers/passwordRRoute');
 // const fileupload = require("express-fileupload");
 // const serveIndex=require('serve-index');
 const cors=require('cors');
@@ -18,12 +18,12 @@ app.use(express.json())
 // app.use(fileupload())
 // app.use('/ftp',express.static('./uploads'),serveIndex('./uploads',{icons:true}))
 // app.use('/',registerRoute);
-app.use('/',loginRoute);
+app.use('/',loginRoute); //rooute for authenticating login user
 // app.use('/',uploadRoute);
-app.use('/',getfilesRoute);
-app.use('/',filedownloadRoute);
-app.use('/',passwordResetRoute);
-// app.use('/',passwordRRoute);
+app.use('/',getfilesRoute);  //route for fetching all files uploaded
+app.use('/',filedownloadRoute); //route for downloadin a file
+app.use('/',passwordResetRoute); //route for passing a valid email for password reset
+app.use('/',passwordRRoute); // route for adding  new password to the database
 
 
 
