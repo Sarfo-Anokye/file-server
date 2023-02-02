@@ -1,9 +1,9 @@
 import "./App.css";
 import { createContext, Dispatch, SetStateAction, useState } from "react";
 import Login from "./pages/login";
-// import Register from './pages/register';
-// import ResetPassword from './pages/resetPassword';
-// import NewPassword from './pages/newPassword';
+import Register from './pages/register';
+import ResetPassword from './pages/resetPassword';
+import NewPassword from './pages/newPassword';
 import User from "./component/user";
 import Admin from "./component/admin";
 import {
@@ -42,9 +42,9 @@ function App() {
             <Route path="/user" element={<User />} />
             <Route path="/admin" element={<Admin />} />
             <Route path="/" element={<Login />} />
-            {/* <Route path='/register' element={<Register/>} />  */}
-            {/* <Route path='/reset-password/:id/:token' element={<NewPassword/>} />  */}
-            {/* <Route path='/reset-password' element={<ResetPassword/>} />  */}
+            <Route path='/register' element={<Register/>} /> 
+            <Route path='/reset-password/:id/:token' element={<NewPassword/>} /> 
+            <Route path='/reset-password' element={<ResetPassword/>} /> 
           </Routes>
         </BrowserRouter>
       </loginContext.Provider>
