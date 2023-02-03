@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 // import FormData from 'form-data';
 
 function Admin() {
@@ -50,11 +51,14 @@ function Admin() {
 //   console.log(File);
   return (
     <div>
+      <div className='adminNav'><Link to='/admin/records'>Records</Link></div>
       <form onSubmit={postFile}>
         <input type="file" onChange={handleFileChange} />
-        <label>title</label>
+        <br></br>
+        <br></br>
+        <label>Title</label>
         <input type="text" name="title" onChange={handleTitledata} />
-        <label>description</label>
+        <label>Description</label>
         <input
           type="text"
           name="decription"

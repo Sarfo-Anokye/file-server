@@ -61,8 +61,10 @@ console.log(loginresponse)
     <label htmlFor="password">Password:</label>
     <input type="password" id="password" name="password"  required onChange={handleFormData}></input>
     <input type="submit" value="Login"></input>
+    <div> <Link to='/register'>create account</Link></div>
+   <p> <Link to='/reset-password'> Forgot password</Link></p> 
   </form>
-    <Link to='/reset-password'> REST PASSWORD</Link>
+  
   </>
 
    

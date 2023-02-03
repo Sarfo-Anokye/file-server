@@ -6,6 +6,7 @@ import ResetPassword from './pages/resetPassword';
 import NewPassword from './pages/newPassword';
 import User from "./component/user";
 import Admin from "./component/admin";
+import AdminRec from "./pages/adminRec";
 import {
   createBrowserRouter,
   RouterProvider,
@@ -16,31 +17,19 @@ import {
 
 export const loginContext = createContext<any>(null);
 
-// interface contex{
-//   login:object,
-//   setlogin:()=>void
-// };
-// type logintype={
-//   isauth:Boolean,
-//   userrole:string,
-
-// }
-
 function App() {
   const [loginresponse, setloginresponse] = useState()
   // console.log(isloggedin)
   const help = true;
-  const contextValue={
-    loginresponse,
-    setloginresponse
-  }
+  
   return (
     <>
-      <loginContext.Provider value={{contextValue}}>
+      <loginContext.Provider value={{loginresponse,setloginresponse}}>
         <BrowserRouter>
           <Routes>
             <Route path="/user" element={<User />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/records" element={<AdminRec />} />
             <Route path="/" element={<Login />} />
             <Route path='/register' element={<Register/>} /> 
             <Route path='/reset-password/:id/:token' element={<NewPassword/>} /> 

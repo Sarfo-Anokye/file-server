@@ -7,13 +7,13 @@ const fs=require('fs')
 
 
 getfilesRoute.get('/users',(req:any,res:any)=>{
-    fs.readdir('./uploads', function (err:string, files:File) {
+    fs.readdir('./uploads', function (err:any, files:any) {
         //handling error
         if (err) {
             return console.log('Unable to scan directory: ' + err);
         } 
         //listing all files using forEach
-        console.log(files)
+        // console.log(files)
             res.send(files)
         });
     });
