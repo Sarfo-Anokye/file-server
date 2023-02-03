@@ -1,0 +1,21 @@
+LINUX BASIC COMMANDS
+ls = list
+cat =show a list of something
+mv =move
+cp =copy
+cd =change directory
+nano =create text document
+-v =verbose/show what you are doing
+rm =remove
+sudo bash = acces root mode
+touch =to create new text file
+mkdir =to make new directory
+cd.. = move back to the previous directory
+-r =remove directory
+-l =show length
+
+
+
+
+
+

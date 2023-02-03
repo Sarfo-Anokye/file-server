@@ -9,7 +9,7 @@ passwordRRoute.post('/reset-password/:id/:token',async(req:any,res:any)=>{
     const{id,token}=req.params
     const {password,confirm_password}=req.body
 // console.log(password)
-const hashpassword=await bcrypt.hash(password,10);
+const hashpassword=await bcrypt.hash(password,10); //hashing new  password
     //check if user exisst
     try {
         const query=await client.query("SELECT * FROM users WHERE id=$1",[id])

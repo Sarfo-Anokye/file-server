@@ -1,0 +1,155 @@
+#include <iostream>
+using namespace std;
+int equivalentArrays(int arr1[],int arr2[], len1,len2){
+    if(len1==0 || len2=0){
+        return 0
+    }
+    for(int i=0; i<len1;i++){
+        for(int j=0; j<len2; j++){
+            if(arr1[i]==arr2[j]){
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+int main() {
+   
+    return 0;
+}
+
+1 Write a function named equivalentArrays that has two array arguments and returns 1 if the two arrays contain the same values (but not necessarily in the same order), otherwise it returns 0. Your solution must not sort either array or a copy of either array! Also you must not modify either array, i.e., the values in the arrays upon return from the function must be the same as when the function was called. Note that the arrays do not have to have the same number of elements, they just have to have one of more copies of the same values.
+
+If you are programming in Java or C#, the function prototype is int equivalentArrays(int[ ] a1, int[ ] a2)
+
+If you are programing in C or C++, the function prototype is int equivalentArrays(int a1[ ], int a2[ ], int len1, int len2) where len1 is the number of elements in a1 and len2 is the number of elements in a2.
+
+Hint: If your solution compares the length of the first array with the length of the second array or vice versa, you have misunderstood the problem!! Your solution does not need to determine which array is bigger!
+
+Examples:
+
+if a1 is	and a2 is	return
+{0, 1, 2}	{2, 0, 1}	1 (because both arrays contain the values 0, 1, 2)
+{0, 1, 2, 1}	{2, 0, 1}	1 (because both arrays contain the values 0, 1, 2)
+{2, 0, 1}	{0, 1, 2, 1}	1 (because both arrays contain the values 0, 1, 2)
+{0, 5, 5, 5, 1, 2, 1}	{5, 2, 0, 1}	1 (because both arrays contain the values 0, 1, 2, 5)
+{5, 2, 0, 1}	{0, 5, 5, 5, 1, 2, 1}	1 (because both arrays contain the values 0, 1, 2, 5)
+{0, 2, 1, 2}	{3, 1, 2, 0}	0 (the value 3 is not in the first array)
+{3, 1, 2, 0}	{0, 2, 1, 0}	0 (the value 3 is not in the second array)
+{1, 1, 1, 1, 1, 1}	{1, 1, 1, 1, 1, 2}	0 (the value 2 is not in the first array)
+{}	{3, 1, 1, 1, 1, 2}	0 (3 is not in the first array.)
+{}	{}	1 (not possible to find a counterexample)
+
+
+-----------------------------------------------------------------------------------------------
+
+Define an array to be a Mercurial array if a 3 does not occur between any two 1s. Write a function named isMercurial that returns 1 if its array argument is a Mercurial array, otherwise it returns 0.
+
+If you are programming in Java or C#, the function signature is
+int isMercurial(int[ ] a)
+
+If you are programming in C or C++, the function signature is
+int isMercurial(int a[ ], int len) where len is the number of elements in the array a.
+
+Hint: if you encounter a 3 that is preceded by a 1, then there can be no more 1s in the array after the 3.
+
+Examples
+
+a is	then function returns	reason
+{1, 2, 10, 3, 15, 1, 2, 2}	0	because 3 occurs after a 1 (a[0]) and before another 1 (a[5])
+{5, 2, 10, 3, 15, 1, 2, 2}	1	because the 3 is not between two 1s.
+{1, 2, 10, 3, 15, 16, 2, 2}	1	because the 3 is not between two 1s.
+{3, 2, 18, 1, 0, 3, -11, 1, 3}	0	because a[5] is a 3 and is between a[3] and a[7] which are both 1s.
+{2, 3, 1, 1, 18}	1	because there are no instances of a 3 that is between two 1s
+{8, 2, 1, 1, 18, 3, 5}	1	because there are no instances of a 3 that is between two 1s
+{3, 3, 3, 3, 3, 3}	1	because there are no instances of a 3 that is between two 1s
+{1}	1	because there are no instances of a 3 that is between two 1s
+{}	1	because there are no instances of a 3 that is between two 1s
+
+
+
+
+
+int isMercurial(int arr[],int len){
+    if(len==0){
+        return 1;
+    }
+    int firstPosofOne;
+    int secondPosofOne;
+    int posofThree;
+    bool assignedFirstPosofOne=false;
+    bool assignedSecondPosofOne=false;
+    for(int i=0; i<len;i++){
+        if(arr[i]==1){
+            if(assignedFirstPosofOne){
+                secondPosofOne=i;
+                assignedSecondPosofOne=true;
+            }else{
+                firstPosofOne=i;
+                assignedFirstPosofOne=true;
+            }
+        }
+        	if(arr[i] == 3 && assignedFirstPosofOne) {
+					posofThree = i;
+				}
+        
+    }
+    if(!assignedFirstPosofOne || !assignedSecondPosofOne) return 1;
+    	if(firstPosofOne < posofThree && posofThree < secondPosofOne) {
+				return 0;
+			}
+			return 1;
+}
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+3. An array is rapidly increasing if each element (except the first one) is greater than twice the sum of all its preceding elements.
+
+Write a method named isRapidlyIncreasing that returns 1 if its array argument is rapidly increasing. Otherwise it returns 0.
+
+If you are programming in Java or C#, the function signature is
+int isRapidlyIncreasing(int[ ] a)
+
+If you are programming in C or C++, the function signature is
+int isRapidlyIncreasing(int a[ ], int len) where len is the number of elements in the array a.
+
+You may assume that the input array parameter is not null and that it contains at least one element.
+
+Examples
+
+a is	then function returns	reason
+{1, 3, 9, 27}	1	because 3 > 2*(1), 9 > 2*(1+3), 27 > 2*(1+3+9)
+{1, 3, 200, 500}	1	because 3 > 2*(1), 200 > 2*(1+3), 500 > 2*(1+3+200)
+{1}	1	because all arrays that have only one element are rapidly increasing by definition.
+{1, 3, 9, 26}	0	because 26 is not greater than 2*(1+3+9)
+{1, 3, 7, 26}	0	because 7 is not greater than 2*(1+3)
+{1, 3, 8, 26}	0	because 8 is not greater than 2*(1+3)
+
+Copy and paste your answer here and click the "Submit answer" button
+
+int isRapidlyIncreasing(int arr[],int len){
+for(int i=1; i<len; i++){
+for(int j=0; j<i; j++){
+    if(arr[i]>2*arr[j]){
+        return 1;
+    }else{
+        return 0;
+    }
+}
+}
+return 1;
+}
+
+
+
+
+
+You should see a confirmation popup after hitting the submit button above.
+
+If you have submitted all three answers individually, you can click complete test button below.
+Before you press complete test button, make sure that you have submitted all three answers individually and received a confirmation popup saying your answers for that question was successfully submitted.
+Once you click the complete test button, you can not modify or update your answers.
+
+
+

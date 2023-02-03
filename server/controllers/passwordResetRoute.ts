@@ -20,12 +20,13 @@ passwordResetRoute.post("/reset-password", async (req: any, res: any) => {
   const { email } = req.body;
   //check is email exist in the database
   try {
-    const emailExist = await client.query(
+    const emailExist = await client.query(  //variable for holding select query for all colums with valid email
       "SELECT * FROM users WHERE email=$1",
       [email]
     );
     if (emailExist.rowCount != 0) {
       const secret = JWT_SECRET + emailExist.rows[0].password;
+      //creating jwt payload
       const payload = {
         email: emailExist.rows[0].email,
         id: emailExist.rows[0].id,

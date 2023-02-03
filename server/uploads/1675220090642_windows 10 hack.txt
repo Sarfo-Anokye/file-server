@@ -1,0 +1,21 @@
+1.you have to make a bootable windows 
+2.restart the machine and go to boot options
+3.select the usb drive which contains the windows 10
+4.go to repair my computer
+5.select troubleshoot
+6.click on command prompt
+7.then type this commands
+i)" copy C:\windows\system32\sethc.exe C:\"
+hit enter key
+ii)" copy C:\windows\system32\cmd.exe C:\windows\system32\sethc.exe"
+hit enter key
+iii)"press y"
+8.then restart your machine and boot from the hard disk
+9.press shift key 5 times
+10.command prompt will  open
+11. type these commands
+"net user Adminsitrator (new password)"
+hit enter
+12.then type the new passsword in the password field to gain access 
+
+THANK YOU 

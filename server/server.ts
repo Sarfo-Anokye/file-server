@@ -1,6 +1,6 @@
 const express = require('express');
 const client=require('./db')
-// const registerRoute=require('./controllers/registerRoute');
+const registerRoute=require('./controllers/registerRoute');
 const loginRoute=require('./controllers/loginRoute');
 // const uploadRoute=require('./controllers/uploadRoute');
 const getfilesRoute=require('./controllers/getfilesRoute');
@@ -17,7 +17,7 @@ app.use(cors());
 app.use(express.json())
 // app.use(fileupload())
 // app.use('/ftp',express.static('./uploads'),serveIndex('./uploads',{icons:true}))
-// app.use('/',registerRoute);
+app.use('/',registerRoute);
 app.use('/',loginRoute); //rooute for authenticating login user
 // app.use('/',uploadRoute);
 app.use('/',getfilesRoute);  //route for fetching all files uploaded
